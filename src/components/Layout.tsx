@@ -11,9 +11,9 @@ import { Provider } from "react-redux";
 import { store } from "../store";
 
 export const menuItems = [
-  { name: "Home", path: "/", exact: true, icon: "home", inverted: true },
-  { name: "About", path: "/about/", exact: true, icon: "info circle" },
+  //{ name: "Home", path: "/", exact: true, icon: "home", inverted: true },
   { name: "Blog", path: "/blog/", exact: false, icon: "newspaper" },
+  { name: "About", path: "/about/", exact: true, icon: "info circle" },
 ];
 
 export interface LayoutProps {
@@ -25,7 +25,7 @@ export interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
   const { pathname } = props.location;
-  const isHome = pathname === "/";
+  //const isHome = pathname === "/";
 
   return (
     <Provider store={store}>
@@ -35,7 +35,8 @@ const Layout = (props: LayoutProps) => {
 
         <Sidebar.Pusher style={{ minHeight: "100vh" }}>
           {/* Header */}
-          {isHome ? null : <HeaderMenu
+          {/*isHome ? null : */
+          <HeaderMenu
             Link={Link}
             pathname={pathname}
             items={menuItems}

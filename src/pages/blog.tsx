@@ -130,7 +130,7 @@ query PageBlog {
           title
           updatedDate(formatString: "DD MMMM, YYYY")
           image {
-          	children {
+            children {
               ... on ImageSharp {
                 fixed(width: 700, height: 100) {
                   src

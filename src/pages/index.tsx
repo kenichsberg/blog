@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { navigate } from "gatsby";
 import HeaderMenu from "../components/HeaderMenu/HeaderMenu";
 import { withLayout, LayoutProps, menuItems } from "../components/Layout";
+/*
 import {
   Button,
   Segment,
@@ -10,10 +11,14 @@ import {
   Header,
   Icon,
 } from "semantic-ui-react";
+*/
 
+/*
 const IndexPage = (props: LayoutProps) =>
   <div>
+  */
     {/* Master head */}
+    /*
     <Segment vertical inverted textAlign="center" className="masthead">
       <HeaderMenu
         Link={Link} pathname={props.location.pathname} items={menuItems} inverted
@@ -25,7 +30,9 @@ const IndexPage = (props: LayoutProps) =>
       </Container>
     </Segment>
 
+*/
     {/* About this starter */}
+    /*
     <Segment vertical className="stripe">
       <Grid stackable verticalAlign="middle" className="container">
         <Grid.Row>
@@ -42,7 +49,9 @@ const IndexPage = (props: LayoutProps) =>
                 </p>
           </Grid.Column>
           <Grid.Column width="6" floated="right">
+          */
             {/* TODO replace with a pretty GIF */}
+            /*
             <Header>Lorem ipsum</Header>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -58,7 +67,9 @@ const IndexPage = (props: LayoutProps) =>
       </Grid>
     </Segment>
 
+*/
     {/* Key features */}
+    /*
     <Segment vertical className="stripe alternate feature">
       <Grid columns="3" textAlign="center" divided relaxed stackable className="container">
         <Grid.Row>
@@ -102,5 +113,14 @@ const IndexPage = (props: LayoutProps) =>
       </Grid>
     </Segment>
   </div>;
+  */
+
+const IndexPage = () => {
+  React.useEffect(() => {
+    navigate('/blog/');
+  }, []);
+
+  return null;
+};
 
 export default withLayout(IndexPage);

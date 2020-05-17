@@ -9,7 +9,6 @@ export default () => {
         <Header.Content>
           Blog
             <Header.Subheader>
-            All about this starter kit
             </Header.Subheader>
         </Header.Content>
       </Header>
