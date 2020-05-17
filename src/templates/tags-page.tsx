@@ -35,7 +35,7 @@ query TemplateTagPage($tag: String) {
         }
         frontmatter {
           title
-          updatedDate(formatString: "DD MMMM, YYYY")
+          updatedDate(formatString: "YYYY/MM/DD")
           image {
           	children {
               ... on ImageSharp {

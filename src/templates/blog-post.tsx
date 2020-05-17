@@ -65,15 +65,17 @@ const BlogPostPage = (props: BlogPostProps) => {
       <Segment vertical style={{ border: "none" }}>
         <Item.Group>
           <Item>
-            <Item.Image size="tiny"
-              src={avatar.fixed.src}
-              srcSet={avatar.fixed.srcSet}
-              circular
-            />
             <Item.Content>
-              <Item.Description>{frontmatter.author.id}</Item.Description>
-              <Item.Meta>{frontmatter.author.bio}</Item.Meta>
-              <Item.Extra>{frontmatter.updatedDate} - {timeToRead} min read</Item.Extra>
+              <Item.Description>
+                <Header as="h4">
+                  <Icon name="calendar alternate" size="large" />
+                  {frontmatter.updatedDate}
+                </Header>
+              </Item.Description>
+              <Item.Extra>
+                  <Icon name="time" size="large" />
+                {timeToRead} min read
+              </Item.Extra>
             </Item.Content>
           </Item>
         </Item.Group>
@@ -90,7 +92,28 @@ const BlogPostPage = (props: BlogPostProps) => {
         }}
       />
       <Segment vertical>
-        {tags}
+        <Icon name="tags" size="large" />
+        タグ：　{tags}
+      </Segment>
+      <Segment vertical>
+        <Item.Group>
+          <Item>
+            <Item.Image size="tiny"
+              src={avatar.fixed.src}
+              srcSet={avatar.fixed.srcSet}
+              circular
+            />
+            <Item.Content>
+              <Item.Extra>管理人</Item.Extra>
+              <Item.Description>
+                <Header as="h4">
+                  <b>{frontmatter.author.id}</b>
+                </Header>
+              </Item.Description>
+              <Item.Meta>{frontmatter.author.bio}</Item.Meta>
+            </Item.Content>
+          </Item>
+        </Item.Group>
       </Segment>
       {props.data.site
         && props.data.site.siteMetadata
@@ -142,7 +165,7 @@ export const pageQuery = graphql`
         }
       }
       title
-      updatedDate(formatString: "MMM D, YYYY")
+      updatedDate(formatString: "YYYY/MM/DD")
       image {
         children {
           ... on ImageSharp {
