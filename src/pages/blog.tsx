@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
+import { Header, Grid, Card, List, Container, Feed, Segment, Comment, Icon } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
@@ -37,6 +37,7 @@ const BlogPage = (props: BlogProps) => {
         const extra = (
           <Comment.Group>
             <Comment>
+            {/*
               <Comment.Avatar
                 src={avatar.fixed.src}
                 srcSet={avatar.fixed.srcSet}
@@ -49,6 +50,17 @@ const BlogPage = (props: BlogProps) => {
                   {frontmatter.updatedDate} - {timeToRead} min read
               </Comment.Metadata>
               </Comment.Content>
+            */}
+              <Comment.Content>
+                <Comment.Author style={{ fontWeight: 400 }}>
+                  <Icon name="calendar" />
+                  {frontmatter.updatedDate}
+                </Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>
+                  <Icon name="time" />
+                  {timeToRead} min read
+                </Comment.Metadata>
+              </Comment.Content>
             </Comment>
           </Comment.Group>
         );
@@ -57,18 +69,20 @@ const BlogPage = (props: BlogProps) => {
           <Card.Description>
             {excerpt}
             <br />
-            <Link to={slug}>Read more…</Link>
+            <Link to={slug}>本文を読む…</Link>
           </Card.Description>
         );
 
         return (
-          <Card key={slug}
-            fluid
-            image={cover}
-            header={frontmatter.title}
-            extra={extra}
-            description={description}
-          />
+          <Link to={slug}>
+            <Card key={slug}
+              fluid
+              image={cover}
+              header={frontmatter.title}
+              extra={extra}
+              description={description}
+            />
+          </Link>
         );
       })}
     </Container>

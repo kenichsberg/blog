@@ -1,9 +1,9 @@
 /* eslint-disable quotes */
 module.exports = {
   siteMetadata: {
-    title: `My website`,
+    title: `KEN'S BLOG`,
     googleVerification: `abcdefz`,
-    disqus: `gatsby-typescript`
+    disqus: `https-nakayama-netlify-app`
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': `AuthorJson`

@@ -14,15 +14,23 @@ const AboutPage = () => {
         </Header>
       </Segment>
       <Segment vertical>
+        <Header as="h4">
+          管理人： 
+          <Header.Content>
+            Ken
+          </Header.Content>
+        </Header>
         <p>
-          This starter was created by @fabien0102.
+          全く別の業界から転職し、30歳でwebエンジニアになりました。
         </p>
         <p>
-          For any question, I'm on <a href="https://discord.gg/2bz8EzW" target="blank">discord #reactiflux/gatsby</a>
+          普段はぺちぱーですが、趣味で React/React Native の開発をしています。
         </p>
         <p>
-          For any issues, any PR are welcoming
-          <a href="https://github.com/fabien0102/gatsby-starter/issues" target="blank"> on this repository</a>
+          ブログには、主にReact/React Nativeの話を書いていくつもりです。
+        </p>
+        <p>
+          このブログも、Gatsby.js + React + Netlify で書いています。
         </p>
       </Segment>
     </Container>

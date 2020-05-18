@@ -63,6 +63,7 @@ const BlogPostPage = (props: BlogPostProps) => {
     <Container>
       <BlogTitle />
       <Segment vertical style={{ border: "none" }}>
+        <Header as="h1">{frontmatter.title}</Header>
         <Item.Group>
           <Item>
             <Item.Content>
@@ -79,7 +80,6 @@ const BlogPostPage = (props: BlogPostProps) => {
             </Item.Content>
           </Item>
         </Item.Group>
-        <Header as="h1">{frontmatter.title}</Header>
       </Segment>
       <Image
         {...cover}
