@@ -15,15 +15,18 @@ interface HtmlProps {
 export default (props: HtmlProps) => {
   const head = Helmet.rewind();
 
-  const verification = config.siteMetadata && config.siteMetadata.googleVerification ? <meta
-    name="google-site-verification"
-    content={config.siteMetadata.googleVerification} /> : null;
+  const verification = config.siteMetadata && config.siteMetadata.googleVerification 
+    ? <meta
+        name="google-site-verification"
+        content={config.siteMetadata.googleVerification} 
+      />
+    : null;
 
   return (
-    <html lang="en">
+    <html lang="jp">
       <head>
         {props.headComponents}
-        <title>My website</title>
+        <title>{config.siteMetadata.title}</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta

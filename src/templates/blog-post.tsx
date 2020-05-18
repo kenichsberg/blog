@@ -1,4 +1,5 @@
 import * as React from "react";
+import Helmet from "react-helmet";
 import { Link } from "gatsby";
 import { get } from "lodash";
 import { Header, Container, Segment, Icon, Label, Button, Grid, Card, Image, Item, Comment } from "semantic-ui-react";
@@ -15,6 +16,8 @@ interface BlogPostProps extends LayoutProps {
     site: Site
   };
 }
+
+const config = require("../../gatsby-config.js");
 
 const BlogPostPage = (props: BlogPostProps) => {
   const { frontmatter, html, timeToRead } = props.data.post;
@@ -61,68 +64,73 @@ const BlogPostPage = (props: BlogPostProps) => {
   const cover = get(frontmatter, "image.children.0.fixed", {} );
   return (
     <Container>
+      <Helmet>
+        <title>{`${frontmatter.title} | ${config.siteMetadata.title}`}</title>
+      </Helmet>
       <BlogTitle />
-      <Segment vertical style={{ border: "none" }}>
-        <Header as="h1">{frontmatter.title}</Header>
-        <Item.Group>
-          <Item>
-            <Item.Content>
-              <Item.Description>
-                <Header as="h4">
-                  <Icon name="calendar alternate" size="large" />
-                  {frontmatter.updatedDate}
-                </Header>
-              </Item.Description>
-              <Item.Extra>
+      <Container text>
+        <Segment vertical style={{paddingBottom: 30}}>
+          <Header as="h1">{frontmatter.title}</Header>
+          <Item.Group>
+            <Item>
+              <Item.Content>
+                <Item.Description>
+                  <Header as="h4">
+                    <Icon name="calendar alternate" size="large" />
+                    {frontmatter.updatedDate}
+                  </Header>
+                </Item.Description>
+                <Item.Extra>
                   <Icon name="time" size="large" />
-                {timeToRead} min read
-              </Item.Extra>
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </Segment>
-      <Image
-        {...cover}
-        fluid
-      />
-      <Segment vertical
-        style={{ border: "none" }}
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
-      <Segment vertical>
-        <Icon name="tags" size="large" />
-        タグ：　{tags}
-      </Segment>
-      <Segment vertical>
-        <Item.Group>
-          <Item>
-            <Item.Image size="tiny"
-              src={avatar.fixed.src}
-              srcSet={avatar.fixed.srcSet}
-              circular
-            />
-            <Item.Content>
-              <Item.Extra>管理人</Item.Extra>
-              <Item.Description>
-                <Header as="h4">
-                  <b>{frontmatter.author.id}</b>
-                </Header>
-              </Item.Description>
-              <Item.Meta>{frontmatter.author.bio}</Item.Meta>
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </Segment>
-      {props.data.site
-        && props.data.site.siteMetadata
-        && props.data.site.siteMetadata.disqus
-        && <Segment vertical>
-            <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}}/>
+                  {timeToRead} min read
+                </Item.Extra>
+              </Item.Content>
+            </Item>
+          </Item.Group>
+          <Icon name="tags" size="large" />
+          タグ：　{tags}
         </Segment>
-      }
-      <Segment vertical>
+        <Image
+          {...cover}
+          fluid
+          style={{marginTop: 60}}
+        />
+        <Segment 
+          vertical
+          style={{marginTop: 60, paddingBottom: 90}}
+          dangerouslySetInnerHTML={{
+            __html: html,
+          }}
+        />
+        <Segment vertical style={{marginTop: 20, paddingBottom: 30}}>
+          <Item.Group>
+            <Item>
+              <Item.Image size="tiny"
+                src={avatar.fixed.src}
+                srcSet={avatar.fixed.srcSet}
+                circular
+              />
+              <Item.Content>
+                <Item.Extra>管理人</Item.Extra>
+                <Item.Description>
+                  <Header as="h4">
+                    <b>{frontmatter.author.id}</b>
+                  </Header>
+                </Item.Description>
+                <Item.Meta>{frontmatter.author.bio}</Item.Meta>
+              </Item.Content>
+            </Item>
+          </Item.Group>
+        </Segment>
+        {props.data.site
+          && props.data.site.siteMetadata
+          && props.data.site.siteMetadata.disqus
+          && <Segment vertical style={{marginTop: 60}}>
+              <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}}/>
+          </Segment>
+        }
+      </Container>
+      <Segment vertical style={{marginTop: 60}}>
         <Grid padded centered>
           {recents}
         </Grid>

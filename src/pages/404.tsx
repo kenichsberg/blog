@@ -13,6 +13,8 @@ const NotFoundPage = () =>
           <Icon name="marker" size="huge"/>
           <Header as="h1">You are here!</Header>
           <Header as="h2">But nothing found for you #404</Header>
+          <br />
+          <Header as="h1">ページが見つかりません：404</Header>
         </Grid.Row>
       </Grid.Column>
     </Grid>;

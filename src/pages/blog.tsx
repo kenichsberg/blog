@@ -1,4 +1,5 @@
 import * as React from "react";
+import Helmet from "react-helmet";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { Header, Grid, Card, List, Container, Feed, Segment, Comment, Icon } from "semantic-ui-react";
@@ -19,6 +20,8 @@ interface BlogProps extends LayoutProps {
     tag?: string; // only set into `templates/tags-pages.tsx`
   };
 }
+
+const config = require("../../gatsby-config.js");
 
 const BlogPage = (props: BlogProps) => {
   const tags = props.data.tags.group;
@@ -91,6 +94,9 @@ const BlogPage = (props: BlogProps) => {
   return (
     <Container>
       {/* Title */}
+      <Helmet>
+        <title>{`${config.siteMetadata.title}`}</title>
+      </Helmet>
       <BlogTitle />
 
       {/* Content */}
