@@ -90,11 +90,13 @@ const BlogPostPage = (props: BlogPostProps) => {
           <Icon name="tags" size="large" />
           タグ：　{tags}
         </Segment>
-        <Image
-          {...cover}
-          fluid
-          style={{marginTop: 60}}
-        />
+    </Container>
+    <Image
+      {...cover}
+      fluid
+      style={{marginTop: 60}}
+    />
+    <Container text>
         <Segment 
           vertical
           style={{marginTop: 60, paddingBottom: 90}}

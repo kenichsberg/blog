@@ -27,13 +27,25 @@ const AboutPage = () => {
             </Header.Content>
           </Header>
           <p>
-            全く別の業界から転職し、30歳でwebエンジニアになりました。
+            30歳の時に全く別業界から転職し、webエンジニアになりました。
           </p>
           <p>
-            ブログには、主にReact/React Nativeの話を書いていくつもりです。
+            仕事ではPHP、趣味でReact/React Nativeを書いています。Typescriptを勉強中。
+          </p>
+          <br />
+          <Header as="h3">
+            <Header.Content>
+              ブログについて
+            </Header.Content>
+          </Header>
+          <p>
+            Gatsby.jsを使ってみたい一心でブログを始めました。
           </p>
           <p>
-            このブログも、Gatsby.js + React + Netlify で書いています。
+            このブログは、Gatsby.js + React + Netlify で書いています。
+          </p>
+          <p>
+            ※本ブログに記載するコードは、自由に使用していただいて結構です。
           </p>
         </Container>
       </Segment>
