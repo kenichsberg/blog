@@ -179,7 +179,7 @@ export const pageQuery = graphql`
       image {
         children {
           ... on ImageSharp {
-            fixed(width: 900, height: 300, quality: 100) {
+            fixed(height: 200, quality: 100) {
               src
               srcSet
             }
