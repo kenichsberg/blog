@@ -57,6 +57,16 @@ Gatsby.jsは.mdファイルの他に、WordPressやDB等色々なところから
 サーバーレスなので、Netlifyの無料枠で運用コスト0円なのも嬉しい。
 
 
+### スターター
+<a href="https://www.gatsbyjs.org/starters/?v=2" target="_blank">スターター</a>
+が充実しているので、僕みたいなReact初心者でも始めやすいと思います。
+
+僕は
+<a href="https://www.gatsbyjs.org/starters/fabien0102/gatsby-starter/" target="_blank">こちら(gatsby-starter)</a>を使用しました。
+Typescriptで書かれているものの中から、シンプルなもので、かつできるだけそのまま使えそうなものを選びました。
+（細かい部分は色々直しましたが、Reactなので楽しいです。）
+
+ちなみにドキュメントは親切丁寧ですが、英語のみです。
 <!--
 Gatsby.jsではデータソースを取得するロジックは、GraphQLのクエリを書きます。
 
@@ -91,17 +101,6 @@ WebアプリのようにDBへの読み書きが多い用途には使えなさそ
 設定なしでSSRが使える便利な環境が、すぐ構築できるのはメリットかもしれませんが。
 -->
 
-### React必須
-ただ、
-<a href="https://www.gatsbyjs.org/starters/?v=2" target="_blank">スターター</a>
-が充実しているので、僕みたいなReact初心者でも始めやすいと思います。
-
-僕は
-<a href="https://www.gatsbyjs.org/starters/fabien0102/gatsby-starter/" target="_blank">こちら(gatsby-starter)</a>を使用しました。
-Typescriptで、（楽をしたかったので）できるだけそのまま使えそうなものを選んだつもりでしたが、
-案の定細かい部分は色々直す羽目に。まあ、Reactなので楽しいです。GraphQLもちょこっと触っただけなのであれですが、使いやすそうな印象です。
-
-ドキュメントも親切丁寧ですが英語のみです。
 
 <br />
 
@@ -111,7 +110,7 @@ Typescriptで、（楽をしたかったので）できるだけそのまま使�
 
 Gatsby.jsを色々いじってみて、楽しいのでとりあえず満足しています。
 
-（触ってみてGatsby.jsはかなり奥が深いことがわかったので、そのうちこんな適当な記事ではなくもっと掘り下げたいという気がしてきました）
+（触ってみてGatsby.jsはかなり奥が深いことがわかったので、この記事みたいな浅い理解で終わるのではなく、そのうちもっと掘り下げたいという気がしてきました）
 
 <br/>
 そろそろReact Nativeの開発に戻ります...
