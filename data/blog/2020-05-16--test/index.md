@@ -6,7 +6,7 @@ author: Ken
 tags:
   - test
   - gatsby
-image: ../image/Gatsby_logo.png
+image: ../images/Gatsby_logo.png
 draft: false
 ---
 

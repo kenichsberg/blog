@@ -6,8 +6,9 @@ import { Header, Container, Segment, Icon, Label, Button, Grid, Card, Image, Ite
 import { MarkdownRemark, ImageSharp, MarkdownRemarkConnection, Site } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import { DiscussionEmbed } from "disqus-react";
-import {withLayout, LayoutProps} from "../components/Layout";
+import { withLayout, LayoutProps } from "../components/Layout";
 import { graphql } from "gatsby";
+import _ from "lodash";
 
 interface BlogPostProps extends LayoutProps {
   data: {
@@ -24,7 +25,7 @@ const BlogPostPage = (props: BlogPostProps) => {
   const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
 
   const tags = props.data.post.frontmatter.tags
-    .map((tag) => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
+    .map((tag) => <Label key={tag}><Link to={`/blog/tags/${_.kebabCase(tag)}/`}>{tag}</Link></Label>);
 
   const recents = props.data.recents.edges
     .map(({ node }) => {
@@ -33,6 +34,7 @@ const BlogPostPage = (props: BlogPostProps) => {
       const extra = (
         <Comment.Group>
           <Comment>
+            {/*
             <Comment.Avatar
               src={recentAvatar.fixed.src}
               srcSet={recentAvatar.fixed.srcSet}
@@ -42,6 +44,17 @@ const BlogPostPage = (props: BlogPostProps) => {
                 {node.frontmatter.author.id}
               </Comment.Author>
               <Comment.Metadata style={{ margin: 0 }}>
+                {node.timeToRead} min read
+              </Comment.Metadata>
+            </Comment.Content>
+            */}
+            <Comment.Content>
+              <Comment.Author style={{ fontWeight: 400 }}>
+                <Icon name="calendar" />
+                {node.frontmatter.updatedDate}
+              </Comment.Author>
+              <Comment.Metadata style={{ margin: 0 }}>
+                <Icon name="time" />
                 {node.timeToRead} min read
               </Comment.Metadata>
             </Comment.Content>
@@ -133,6 +146,7 @@ const BlogPostPage = (props: BlogPostProps) => {
         }
       </Container>
       <Segment vertical style={{marginTop: 60}}>
+        <Header as="h3" style={{marginBottom: 30, textAlign: 'center'}}><Icon name="calendar check" />最近の記事</Header>
         <Grid padded centered>
           {recents}
         </Grid>
@@ -205,6 +219,7 @@ export const pageQuery = graphql`
         timeToRead
         frontmatter {
           title
+          updatedDate
           image {
             children {
               ... on ImageSharp {

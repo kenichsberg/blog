@@ -84,6 +84,7 @@ const BlogPage = (props: BlogProps) => {
               header={frontmatter.title}
               extra={extra}
               description={description}
+              style={{marginBottom: 20}}
             />
           </Link>
         );

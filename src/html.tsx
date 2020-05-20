@@ -23,7 +23,7 @@ export default (props: HtmlProps) => {
     : null;
 
   return (
-    <html lang="jp">
+    <html lang="ja">
       <head>
         {props.headComponents}
         <title>{config.siteMetadata.title}</title>

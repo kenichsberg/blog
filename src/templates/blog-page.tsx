@@ -40,7 +40,7 @@ query TemplateBlogPage($skip: Int) {
           image {
           	children {
               ... on ImageSharp {
-                fixed(width: 700, height: 100) {
+                fixed(height: 100) {
                   src
                   srcSet
                 }
