@@ -27,7 +27,7 @@ const AboutPage = () => {
             </Header.Content>
           </Header>
           <p>
-            30歳の時に全く別業界から転職し、webエンジニアになりました。
+            30歳の時に全く別の業界から転職し、webエンジニアになりました。
           </p>
           <p>
             仕事ではPHP、趣味でReact/React Nativeを書いています。Typescriptを勉強中。
@@ -39,7 +39,7 @@ const AboutPage = () => {
             </Header.Content>
           </Header>
           <p>
-            Gatsby.jsを使ってみたい一心でブログを始めました。
+            Gatsby.jsを使ってみたいと思いブログを始めました。
           </p>
           <p>
             このブログは、Gatsby.js + React + Netlify で書いています。
